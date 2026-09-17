@@ -1,0 +1,64 @@
+:root {
+  --vino: #6d1f2c;
+  --vino-hover: #8f2b3b;
+  --crema: #f4efe6;
+  --crema-soft: #fbf7f0;
+  --crema-bg: #f0eee9;
+  --azul: #3c4a72;
+  --ink: #1a1a1a;
+  --ink-soft: #1c1a19;
+  --gray-1: #5f584c;
+  --gray-2: #7a705f;
+  --gray-3: #8a8074;
+  --gray-4: #b9ae9c;
+  --gray-5: #cfc6b6;
+  --gray-6: #ded6c8;
+
+  --font-serif: var(--font-bodoni), "Times New Roman", serif;
+  --font-script: var(--font-caveat), cursive;
+  --font-mono: var(--font-plex-mono), ui-monospace, Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--crema-bg);
+  color: var(--ink);
+  font-family: system-ui, sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  font-family: var(--font-script);
+  font-weight: 500;
+  font-size: 32px;
+  color: var(--ink);
+  margin: 0;
+}

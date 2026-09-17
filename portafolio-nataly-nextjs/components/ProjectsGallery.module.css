@@ -1,0 +1,128 @@
+.section {
+  background: var(--crema-bg);
+  padding: 72px 0 56px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--vino);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.drag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--vino);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 4px 24px 20px;
+  cursor: grab;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-4) transparent;
+}
+
+.track.dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.track::-webkit-scrollbar-thumb {
+  background: var(--gray-5);
+  border-radius: 999px;
+}
+
+.card {
+  flex: none;
+  width: 240px;
+  height: 320px;
+  border-radius: 2px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  scroll-snap-align: start;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.cardCategory {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.cardDescription {
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.progressWrap {
+  margin-top: 8px;
+}
+
+.progressTrack {
+  height: 2px;
+  background: var(--gray-6);
+  position: relative;
+  border-radius: 2px;
+}
+
+.progressFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  background: var(--vino);
+  border-radius: 2px;
+  transition: width 60ms linear;
+}
