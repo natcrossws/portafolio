@@ -1,31 +1,32 @@
 import Image from "next/image";
 import styles from "./Hero.module.css";
 
+const TITLES = [
+  "Creative Developer",
+  "Software Development Lead",
+  "Frontend",
+  "UX/UI",
+  "Design Systems",
+  "Art History Student",
+  "Computer Systems Engineer",
+];
+
 export default function Hero() {
+  const ticker = [...TITLES, ...TITLES];
+
   return (
     <section className={styles.hero} aria-label="Portada">
       <div className={styles.frame}>
-        <Image
-          src="/images/nataly-hero.jpg"
-          alt="Nataly Melo"
-          fill
-          priority
-          sizes="880px"
-          className={styles.photo}
-        />
-
-        <div className={styles.topBar}>
-          <div className={styles.status}>
-            <span className={styles.dot} />
-            <span className={styles.statusText}>DISPONIBLE 2026</span>
-          </div>
-          <nav className={styles.nav} aria-label="Navegación principal">
-            <a href="#obra">obra</a>
-            <span className={styles.navDivider}>·</span>
-            <a href="#sobre">sobre</a>
-            <span className={styles.navDivider}>·</span>
-            <a href="#contacto">contacto</a>
-          </nav>
+        <div className={styles.photoWrap}>
+          <Image
+            src="/images/nataly-hero-v2.png"
+            alt="Nataly Melo"
+            width={880}
+            height={433}
+            priority
+            sizes="(max-width: 720px) 110vw, min(58vw, 820px)"
+            className={styles.photo}
+          />
         </div>
 
         <div className={styles.nameBlock}>
@@ -42,7 +43,16 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className={styles.scrollHint}>scroll ↓</div>
+        <div className={styles.marquee} aria-hidden="true">
+          <div className={styles.marqueeTrack}>
+            {ticker.map((title, i) => (
+              <span key={`${title}-${i}`} className={styles.marqueeItem}>
+                {title}
+                <span className={styles.marqueeSep}>·</span>
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

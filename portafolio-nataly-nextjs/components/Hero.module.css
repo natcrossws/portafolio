@@ -1,102 +1,52 @@
 .hero {
   background: var(--crema-bg);
-  padding: 28px 0 0;
+  padding: 0;
+  width: 100%;
 }
 
 .frame {
   position: relative;
-  max-width: 880px;
-  margin: 0 auto;
-  aspect-ratio: 880 / 433;
+  width: 100%;
+  min-height: clamp(380px, 58vh, 520px);
   overflow: hidden;
   background: #eee9e3;
 }
 
 /*
- * The source photo is 880x433. We cap the frame at its native width so it is
- * never upscaled (and never pixelates) on wide screens; below that width it
- * scales down fluidly since width is percentage-based.
+ * Bottom-right cutout (like the reference): sits on the lower edge and crops
+ * slightly at the feet. Kept near native width to avoid heavy pixelation.
  */
-.photo {
-  object-fit: cover;
-  object-position: center;
-}
-
-.topBar {
+.photoWrap {
   position: absolute;
-  top: 4%;
-  left: 3.5%;
-  right: 3.5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  right: -2%;
+  bottom: 0;
+  width: min(58vw, 820px);
   z-index: 2;
+  pointer-events: none;
+  line-height: 0;
 }
 
-.status {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--vino);
-  display: inline-block;
-  flex: none;
-}
-
-.statusText {
-  font-family: var(--font-mono);
-  font-size: clamp(7.5px, 1.4vw, 9px);
-  letter-spacing: 0.16em;
-  color: var(--ink-soft);
-  white-space: nowrap;
-}
-
-.nav {
-  display: flex;
-  gap: 7px;
-  background: rgba(251, 247, 240, 0.86);
-  border: 1px solid var(--ink);
-  border-radius: 999px;
-  padding: 6px 13px;
-  font-family: var(--font-mono);
-  font-size: clamp(7.5px, 1.4vw, 9px);
-  color: var(--ink);
-}
-
-.nav a {
-  text-decoration: none;
-  color: var(--ink);
-}
-
-.nav a:hover {
-  color: var(--vino);
-}
-
-.navDivider {
-  color: var(--gray-4);
+.photo {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .nameBlock {
   position: absolute;
-  left: 4%;
-  top: 14%;
-  width: 46%;
-  max-width: 320px;
+  left: clamp(20px, 4vw, 56px);
+  top: clamp(36px, 8vh, 72px);
+  width: min(46%, 420px);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  z-index: 2;
+  gap: 12px;
+  z-index: 3;
 }
 
 .name {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(28px, 7vw, 52px);
+  font-size: clamp(44px, 7vw, 80px);
   line-height: 0.9;
   letter-spacing: -0.015em;
   color: var(--ink);
@@ -109,26 +59,93 @@
 }
 
 .rule {
-  width: 46px;
+  width: 56px;
   height: 1px;
   background: var(--vino);
 }
 
 .role {
   font-family: var(--font-mono);
-  font-size: clamp(7.5px, 1.5vw, 10px);
+  font-size: clamp(10px, 1.15vw, 13px);
   line-height: 1.7;
   letter-spacing: 0.04em;
   color: var(--ink-soft);
   margin: 0;
 }
 
-.scrollHint {
+.marquee {
   position: absolute;
-  left: 4%;
-  bottom: 5%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  overflow: hidden;
+  border-top: 1px solid rgba(26, 26, 26, 0.12);
+  background: rgba(238, 233, 227, 0.92);
+  backdrop-filter: blur(6px);
+  padding: 14px 0;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  animation: marquee 36s linear infinite;
+}
+
+.marqueeItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding-right: 1.4rem;
   font-family: var(--font-mono);
-  font-size: clamp(7.5px, 1.4vw, 9px);
+  font-size: clamp(11px, 1.15vw, 13px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.marqueeSep {
   color: var(--vino);
-  z-index: 2;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .frame {
+    min-height: clamp(420px, 62vh, 560px);
+  }
+
+  .photoWrap {
+    width: min(110vw, 680px);
+    right: -16%;
+    bottom: 42px;
+  }
+
+  .nameBlock {
+    width: min(82%, 320px);
+    top: clamp(28px, 6vh, 56px);
+  }
+
+  .name {
+    font-size: clamp(40px, 12vw, 60px);
+  }
+
+  .marquee {
+    padding: 12px 0;
+  }
 }
