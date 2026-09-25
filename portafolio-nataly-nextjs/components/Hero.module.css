@@ -1,42 +1,45 @@
 .hero {
-  background: var(--crema-bg);
+  background: #e8e0de;
   padding: 0;
   width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  scroll-snap-align: start;
 }
 
 .frame {
   position: relative;
   width: 100%;
-  min-height: clamp(380px, 58vh, 520px);
+  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
-  background: #eee9e3;
+  background: #e8e0de;
 }
 
 /*
- * Bottom-right cutout (like the reference): sits on the lower edge and crops
- * slightly at the feet. Kept near native width to avoid heavy pixelation.
+ * Figure composited on the same cream as the hero so it reads like a
+ * studio photo (reference), not a hard cutout.
  */
 .photoWrap {
   position: absolute;
-  right: -2%;
+  right: 0;
   bottom: 0;
-  width: min(58vw, 820px);
+  width: min(58vw, 860px);
+  height: 68%;
   z-index: 2;
   pointer-events: none;
-  line-height: 0;
 }
 
 .photo {
-  width: 100%;
-  height: auto;
-  display: block;
+  object-fit: cover;
+  object-position: 70% 100%;
 }
 
 .nameBlock {
   position: absolute;
   left: clamp(20px, 4vw, 56px);
-  top: clamp(36px, 8vh, 72px);
-  width: min(46%, 420px);
+  top: clamp(48px, 12vh, 120px);
+  width: min(46%, 480px);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -46,7 +49,7 @@
 .name {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(44px, 7vw, 80px);
+  font-size: clamp(52px, 8vw, 96px);
   line-height: 0.9;
   letter-spacing: -0.015em;
   color: var(--ink);
@@ -80,8 +83,8 @@
   bottom: 0;
   z-index: 3;
   overflow: hidden;
-  border-top: 1px solid rgba(26, 26, 26, 0.12);
-  background: rgba(238, 233, 227, 0.92);
+  border-top: 1px solid rgba(51, 48, 49, 0.12);
+  background: rgba(232, 224, 222, 0.94);
   backdrop-filter: blur(6px);
   padding: 14px 0;
 }
@@ -126,23 +129,25 @@
 }
 
 @media (max-width: 720px) {
+  .hero,
   .frame {
-    min-height: clamp(420px, 62vh, 560px);
+    min-height: 100svh;
   }
 
   .photoWrap {
-    width: min(110vw, 680px);
-    right: -16%;
-    bottom: 42px;
+    width: min(100vw, 640px);
+    height: 52%;
+    right: 0;
+    bottom: 0;
   }
 
   .nameBlock {
-    width: min(82%, 320px);
-    top: clamp(28px, 6vh, 56px);
+    width: min(82%, 340px);
+    top: clamp(72px, 12vh, 110px);
   }
 
   .name {
-    font-size: clamp(40px, 12vw, 60px);
+    font-size: clamp(42px, 13vw, 64px);
   }
 
   .marquee {

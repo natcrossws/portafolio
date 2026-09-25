@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Header from "@/components/Header";
 import styles from "./Hero.module.css";
 
 const TITLES = [
@@ -19,15 +20,17 @@ export default function Hero() {
       <div className={styles.frame}>
         <div className={styles.photoWrap}>
           <Image
-            src="/images/nataly-hero-v2.png"
+            src="/images/nataly-hero-studio.jpg"
             alt="Nataly Melo"
-            width={880}
-            height={433}
+            fill
             priority
-            sizes="(max-width: 720px) 110vw, min(58vw, 820px)"
+            quality={95}
+            sizes="(max-width: 720px) 90vw, 50vw"
             className={styles.photo}
           />
         </div>
+
+        <Header />
 
         <div className={styles.nameBlock}>
           <h1 className={styles.name}>

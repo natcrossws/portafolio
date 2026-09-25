@@ -5,9 +5,9 @@ import { projects, type Project } from "@/lib/projects";
 import styles from "./ProjectsGallery.module.css";
 
 const TONE_STYLE: Record<Project["tone"], { background: string; color: string; border?: string }> = {
-  vino: { background: "#6d1f2c", color: "#f4efe6" },
-  azul: { background: "#3c4a72", color: "#f4efe6" },
-  crema: { background: "#fbf7f0", color: "#1a1a1a", border: "1px solid #b9ae9c" },
+  vino: { background: "#8b5e72", color: "#f3f0e7" },
+  azul: { background: "#164430", color: "#f3f0e7" },
+  crema: { background: "#fad7d1", color: "#333031", border: "1px solid #a7ad7d" },
 };
 
 function ProjectCard({ project }: { project: Project }) {

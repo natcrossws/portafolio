@@ -1,6 +1,12 @@
 .section {
   background: var(--crema-bg);
-  padding: 72px 0 56px;
+  padding: 56px 0 40px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
 }
 
 .head {
@@ -58,8 +64,8 @@
 
 .card {
   flex: none;
-  width: 240px;
-  height: 320px;
+  width: min(280px, 72vw);
+  height: min(52vh, 460px);
   border-radius: 2px;
   padding: 18px;
   display: flex;
@@ -125,4 +131,16 @@
   background: var(--vino);
   border-radius: 2px;
   transition: width 60ms linear;
+}
+
+@media (max-width: 720px) {
+  .section {
+    min-height: 100svh;
+    justify-content: flex-start;
+    padding: 40px 0 32px;
+  }
+
+  .card {
+    height: min(48vh, 400px);
+  }
 }

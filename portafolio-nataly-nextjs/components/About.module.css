@@ -1,7 +1,12 @@
 .section {
   background: var(--crema-bg);
-  padding: 56px 0 64px;
+  padding: 56px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  scroll-snap-align: start;
 }
 
 .grid {
@@ -15,6 +20,11 @@
   .grid {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  .section {
+    min-height: 100svh;
+    align-items: flex-start;
   }
 }
 

@@ -1,18 +1,24 @@
 :root {
-  --vino: #6d1f2c;
-  --vino-hover: #8f2b3b;
-  --crema: #f4efe6;
-  --crema-soft: #fbf7f0;
-  --crema-bg: #f0eee9;
-  --azul: #3c4a72;
-  --ink: #1a1a1a;
-  --ink-soft: #1c1a19;
-  --gray-1: #5f584c;
-  --gray-2: #7a705f;
-  --gray-3: #8a8074;
-  --gray-4: #b9ae9c;
-  --gray-5: #cfc6b6;
-  --gray-6: #ded6c8;
+  --bosque: #164430;
+  --bosque-mid: #445e42;
+  --vino: #8b5e72;
+  --vino-hover: #a07086;
+  --rosa: #f3aeb7;
+  --rosa-soft: #fad7d1;
+  --oro: #e9c742;
+  --sage: #a7ad7d;
+  --crema: #f3f0e7;
+  --crema-soft: #fad7d1;
+  --crema-bg: #ecd7c8;
+  --azul: #164430;
+  --ink: #333031;
+  --ink-soft: #333031;
+  --gray-1: #5f6351;
+  --gray-2: #8a7672;
+  --gray-3: #8e8282;
+  --gray-4: #85a085;
+  --gray-5: #d9b7c2;
+  --gray-6: #e5d7c5;
 
   --font-serif: var(--font-bodoni), "Times New Roman", serif;
   --font-script: var(--font-caveat), cursive;
@@ -25,6 +31,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 body {
