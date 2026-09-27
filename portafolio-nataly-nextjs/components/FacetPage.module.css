@@ -1,0 +1,104 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #e8e0de;
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+}
+
+.photo {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(232, 224, 222, 0.94) 0%, rgba(232, 224, 222, 0.72) 38%, rgba(232, 224, 222, 0.18) 70%, rgba(232, 224, 222, 0.05) 100%),
+    linear-gradient(to top, rgba(28, 22, 24, 0.28), transparent 42%);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  padding: clamp(28px, 6vw, 72px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  justify-content: flex-end;
+  padding-bottom: clamp(40px, 8vh, 88px);
+}
+
+.back {
+  width: fit-content;
+  margin-bottom: 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--vino);
+}
+
+.back:hover {
+  color: var(--ink);
+}
+
+.note {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--vino);
+}
+
+.title {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(42px, 8vw, 72px);
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.lead {
+  margin: 8px 0 0;
+  max-width: 36ch;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 720px) {
+  .shade {
+    background:
+      linear-gradient(to top, rgba(232, 224, 222, 0.96) 0%, rgba(232, 224, 222, 0.78) 38%, rgba(232, 224, 222, 0.2) 70%, transparent 100%);
+  }
+
+  .content {
+    justify-content: flex-end;
+    padding-bottom: 36px;
+  }
+
+  .title {
+    font-size: clamp(34px, 11vw, 48px);
+  }
+}
