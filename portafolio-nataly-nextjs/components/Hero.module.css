@@ -1,13 +1,360 @@
 .hero {
-  background: #e8e0de;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   width: 100%;
+  max-width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
   scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(120% 90% at 15% 20%, #2f5cff 0%, transparent 55%),
+    radial-gradient(100% 80% at 80% 10%, #ffd2ad 0%, transparent 50%),
+    radial-gradient(110% 90% at 20% 90%, #ff3d9a 0%, transparent 55%),
+    #f7efe6;
+  cursor: default;
+}
+
+.mesh {
+  position: absolute;
+  inset: -28%;
+  z-index: 0;
+  filter: blur(72px);
+  transform: translateZ(0);
+  pointer-events: none;
+  animation: meshSpin 48s linear infinite;
+}
+
+.blob {
+  position: absolute;
+  display: block;
+  border-radius: 42% 58% 48% 52%;
+  will-change: transform, border-radius, opacity;
+}
+
+.blobA {
+  width: 62vmax;
+  height: 62vmax;
+  top: -22%;
+  left: -26%;
+  background: radial-gradient(circle at 40% 40%, #3b6bff 0%, #1e4ad4 36%, #1638a8 55%, transparent 72%);
+  animation: driftA 12s ease-in-out infinite;
+}
+
+.blobB {
+  width: 56vmax;
+  height: 56vmax;
+  bottom: -30%;
+  left: -16%;
+  background: radial-gradient(circle at 50% 40%, #ff3d9a 0%, #e01870 34%, #b01058 52%, transparent 72%);
+  animation: driftB 14s ease-in-out infinite;
+}
+
+.blobC {
+  width: 74vmax;
+  height: 74vmax;
+  top: -10%;
+  right: -30%;
+  background: radial-gradient(circle at 45% 50%, #fff0df 0%, #ffd2ad 32%, #f0b892 50%, transparent 70%);
+  animation: driftC 16s ease-in-out infinite;
+}
+
+.blobD {
+  width: 46vmax;
+  height: 46vmax;
+  top: 24%;
+  left: 14%;
+  background: radial-gradient(circle at 50% 50%, #6e96ff 0%, #3d68e8 40%, transparent 68%);
+  opacity: 0.85;
+  animation: driftD 10s ease-in-out infinite;
+}
+
+.blobE {
+  width: 50vmax;
+  height: 50vmax;
+  bottom: -12%;
+  right: 4%;
+  background: radial-gradient(circle at 40% 40%, #ffc2df 0%, #ff7eb3 38%, transparent 70%);
+  animation: driftE 13s ease-in-out infinite;
+}
+
+.trail {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: min(18vw, 120px);
+  height: min(18vw, 120px);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.55) 28%, rgba(255, 255, 255, 0.12) 58%, transparent 72%),
+    radial-gradient(circle, rgba(255, 220, 240, 0.35) 0%, transparent 60%);
+  box-shadow:
+    0 0 28px rgba(255, 255, 255, 0.55),
+    0 0 60px rgba(255, 255, 255, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  mix-blend-mode: soft-light;
+}
+
+.copy {
+  position: relative;
+  z-index: 3;
+  width: min(100%, 560px);
+  max-width: 100%;
+  padding: clamp(2rem, 8vw, 6rem);
+  box-sizing: border-box;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(2.25rem, 6.5vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+  text-shadow: 0 2px 28px rgba(20, 30, 80, 0.18);
+  white-space: nowrap;
+  animation: rise 1s ease both;
+}
+
+.roles {
+  margin: 1.35rem 0 0;
+  font-family: var(--font-mono);
+  font-size: clamp(0.78rem, 1.5vw, 0.95rem);
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 16px rgba(20, 30, 80, 0.2);
+  animation: rise 1s ease 0.18s both;
+}
+
+.dot {
+  display: inline-block;
+  font-size: 1.35em;
+  line-height: 1;
+  vertical-align: 0.05em;
+  letter-spacing: 0;
+}
+
+@keyframes meshSpin {
+  from {
+    transform: rotate(0deg) scale(1.05);
+  }
+  to {
+    transform: rotate(360deg) scale(1.05);
+  }
+}
+
+@keyframes driftA {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    border-radius: 42% 58% 48% 52%;
+  }
+  33% {
+    transform: translate(22%, 16%) scale(1.18) rotate(12deg);
+    border-radius: 58% 42% 62% 38%;
+  }
+  66% {
+    transform: translate(8%, 28%) scale(0.92) rotate(-8deg);
+    border-radius: 48% 52% 40% 60%;
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    border-radius: 42% 58% 48% 52%;
+  }
+}
+
+@keyframes driftB {
+  0% {
+    transform: translate(0, 0) scale(1.05) rotate(0deg);
+    border-radius: 50% 46% 54% 48%;
+  }
+  40% {
+    transform: translate(26%, -20%) scale(1.28) rotate(-14deg);
+    border-radius: 40% 60% 45% 55%;
+  }
+  70% {
+    transform: translate(12%, -6%) scale(0.9) rotate(10deg);
+    border-radius: 60% 40% 55% 45%;
+  }
+  100% {
+    transform: translate(0, 0) scale(1.05) rotate(0deg);
+    border-radius: 50% 46% 54% 48%;
+  }
+}
+
+@keyframes driftC {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(-18%, 14%) scale(1.14) rotate(8deg);
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes driftD {
+  0% {
+    transform: translate(0, 0) scale(0.95) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(24%, -18%) scale(1.32) rotate(18deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) scale(0.95) rotate(0deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes driftE {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    border-radius: 46% 54% 50% 50%;
+  }
+  35% {
+    transform: translate(-20%, -16%) scale(1.22) rotate(-12deg);
+    border-radius: 58% 42% 48% 52%;
+  }
+  65% {
+    transform: translate(-8%, 10%) scale(0.88) rotate(9deg);
+    border-radius: 42% 58% 56% 44%;
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    border-radius: 46% 54% 50% 50%;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    align-items: flex-end;
+  }
+
+  .copy {
+    width: 100%;
+    padding: clamp(1.75rem, 6vw, 3rem) clamp(1.35rem, 5.5vw, 2rem)
+      calc(2rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .name {
+    /* Fits "Nataly Melo" on one line with side padding */
+    font-size: clamp(1.75rem, 8.6vw, 3rem);
+  }
+
+  .roles {
+    margin-top: 1rem;
+    font-size: clamp(0.68rem, 3vw, 0.82rem);
+    letter-spacing: 0.015em;
+    line-height: 1.7;
+    max-width: min(100%, 17.5rem);
+  }
+
+  /* Keep color fields covering the phone screen */
+  .blobA {
+    width: 90vmax;
+    height: 90vmax;
+    top: -30%;
+    left: -45%;
+  }
+
+  .blobB {
+    width: 85vmax;
+    height: 85vmax;
+    bottom: -35%;
+    left: -30%;
+  }
+
+  .blobC {
+    width: 95vmax;
+    height: 95vmax;
+    top: -20%;
+    right: -55%;
+  }
+
+  .blobD {
+    width: 70vmax;
+    height: 70vmax;
+    top: 20%;
+    left: -10%;
+  }
+
+  .blobE {
+    width: 75vmax;
+    height: 75vmax;
+    bottom: -20%;
+    right: -25%;
+  }
 }
 
 @media (max-width: 720px) {
   .hero {
     min-height: 100svh;
+  }
+
+  .mesh {
+    inset: -40%;
+    filter: blur(42px);
+    animation-duration: 64s;
+  }
+
+  .glow {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media (max-width: 380px) {
+  .name {
+    font-size: 1.6rem;
+    letter-spacing: -0.045em;
+  }
+
+  .roles {
+    max-width: 100%;
+    font-size: 0.66rem;
+    letter-spacing: 0.01em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh,
+  .blobA,
+  .blobB,
+  .blobC,
+  .blobD,
+  .blobE,
+  .name,
+  .roles {
+    animation: none;
   }
 }

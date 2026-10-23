@@ -76,6 +76,7 @@ export default function Identity() {
                 src={facet.image!}
                 alt={facet.alt}
                 fill
+                priority
                 sizes="(max-width: 720px) 78vw, 45vw"
                 quality={90}
                 className={styles.photo}
