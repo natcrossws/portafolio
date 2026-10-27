@@ -1,0 +1,26 @@
+Lore
+----
+Biblioteca digital con lógica de videojuego.
+
+En desarrollo · Fase de diseño
+
+La idea
+-------
+¿Y si leer se sintiera como avanzar en un videojuego? Lore es una biblioteca digital donde el progreso de lectura se vuelve visible: cada libro suma, un avatar te representa y una mascota literaria te acompaña.
+
+Dónde va el proyecto
+--------------------
+Antes de escribir código, diseñé las bases del sistema:
+
+• Arquitectura: cómo se organiza la aplicación y cómo se conectan sus partes.
+• Base de datos: el modelo para libros, progreso de lectura, avatares y mascotas.
+• Experiencia de usuario: los flujos y la experiencia de uso.
+
+Lo que sigue
+------------
+• Prototipo visual de las primeras pantallas.
+• Inicio del desarrollo sobre la arquitectura y el modelo de datos ya definidos.
+
+Tecnologías
+-----------
+Arquitectura de software · Modelado de datos · UX/UI · Animación

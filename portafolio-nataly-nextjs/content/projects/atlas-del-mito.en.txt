@@ -1,0 +1,23 @@
+Atlas of Myth
+-------------
+Creative coding for classical mythology and iconography.
+
+Classical mythology · Academia
+
+The idea
+--------
+An interactive atlas of ancient civilizations. On the map, each civilization comes alive with animations that tell its myths and iconography.
+
+The project crosses my two backgrounds: art history and software development. The question is how code can make explorable what is usually only read in a book.
+
+Where the project stands
+------------------------
+The interactive map, the animations of ancient civilizations, and the 3D rendering of iconography are already working, built with JavaScript libraries.
+
+What comes next
+---------------
+• Expand the atlas with more civilizations and stories.
+
+Technologies
+------------
+JavaScript · Interactive map · Web animation · 3D rendering

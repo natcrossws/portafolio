@@ -1,0 +1,26 @@
+Lore
+----
+A digital library with game-like logic.
+
+In progress · Design phase
+
+The idea
+--------
+What if reading felt like leveling up in a video game? Lore is a digital library where reading progress becomes visible: each book counts, an avatar represents you, and a literary pet keeps you company.
+
+Where the project stands
+------------------------
+Before writing code, I designed the foundations of the system:
+
+• Architecture: how the application is organized and how its parts connect.
+• Database: the model for books, reading progress, avatars, and pets.
+• User experience: the flows and the experience of use.
+
+What comes next
+---------------
+• Visual prototype of the first screens.
+• Start of development on the architecture and data model already defined.
+
+Technologies
+------------
+Software architecture · Data modeling · UX/UI · Animation

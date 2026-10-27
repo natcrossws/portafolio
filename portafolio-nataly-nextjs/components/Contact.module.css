@@ -57,8 +57,8 @@
 
 .links a {
   text-decoration: none;
-  color: var(--crema);
-  border-bottom: 1px solid rgba(243, 240, 231, 0.3);
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
   padding-bottom: 2px;
 }
 
@@ -70,7 +70,7 @@
 .bottom {
   margin-top: 48px;
   padding-top: 18px;
-  border-top: 1px solid rgba(243, 240, 231, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -78,7 +78,7 @@
   font-family: var(--font-mono);
   font-size: 9.5px;
   letter-spacing: 0.06em;
-  color: rgba(243, 240, 231, 0.6);
+  color: rgba(255, 255, 255, 0.72);
   text-transform: uppercase;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .bottom a {
-  color: rgba(243, 240, 231, 0.6);
+  color: rgba(255, 255, 255, 0.72);
   text-decoration: none;
 }
 

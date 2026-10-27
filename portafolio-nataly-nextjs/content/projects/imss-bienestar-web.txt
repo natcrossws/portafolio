@@ -1,0 +1,17 @@
+Desarrollo del portal web nacional de IMSS-Bienestar, una plataforma institucional destinada a centralizar y presentar información sobre los servicios, programas y actividades del organismo.
+
+Participé en la construcción integral del sitio: las interfaces públicas y, de forma central, las secciones de alto impacto editorial —noticias y otros canales de publicación urgente— donde la institución comunica información sensible y de vigencia inmediata. Para esas secciones diseñé e implementé un CMS a la medida, pensado específicamente para publicar con rapidez, claridad y control, sin depender de ediciones manuales del sitio.
+
+El proyecto requirió atender tanto la experiencia de las personas que consultan el portal como las necesidades de quienes deben mantener actualizada la información publicada.
+
+Desarrollo de la interfaz web
+-----------------------------
+Implementación de la estructura visual y los componentes del portal, organizando los contenidos institucionales para facilitar su consulta y mantener una presentación coherente a lo largo del sitio.
+
+Lógica de gestión de contenidos
+-------------------------------
+Implementación de un CMS orientado a las secciones de noticias y contenidos urgentes: flujos de alta, edición y publicación pensados para que el equipo editorial pueda sacar información crítica a tiempo, con una estructura clara y sin tocar el código del portal.
+
+Integración entre interfaz y administración
+-------------------------------------------
+Trabajo en la conexión entre la presentación pública de los contenidos y la lógica de administración, considerando tanto la experiencia de navegación como el mantenimiento cotidiano de la información institucional.

@@ -1,9 +1,13 @@
+"use client";
+
+import { CONTACT } from "@/lib/contact";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 import styles from "./Socials.module.css";
 
 const LINKS = [
   {
     name: "Instagram",
-    href: "https://www.instagram.com/",
+    href: CONTACT.socials.instagram,
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" strokeWidth="1.4" />
@@ -14,7 +18,7 @@ const LINKS = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/",
+    href: CONTACT.socials.linkedin,
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path
@@ -26,7 +30,7 @@ const LINKS = [
   },
   {
     name: "GitHub",
-    href: "https://github.com/",
+    href: CONTACT.socials.github,
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path
@@ -38,7 +42,7 @@ const LINKS = [
   },
   {
     name: "Email",
-    href: "mailto:nataliemelo98@gmail.com",
+    href: `mailto:${CONTACT.email}`,
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <rect x="3.5" y="5.5" width="17" height="13" rx="2.2" fill="none" stroke="currentColor" strokeWidth="1.4" />
@@ -49,12 +53,13 @@ const LINKS = [
 ];
 
 export default function Socials() {
+  const { t } = useI18n();
   const year = new Date().getFullYear();
 
   return (
-    <footer id="contacto" className={styles.section} aria-label="Redes">
-      <nav className={styles.row} aria-label="Redes sociales">
-        {LINKS.map((link) => (
+    <footer id="contacto" className={styles.section} aria-label={t.socials.aria}>
+      <nav className={styles.row} aria-label={t.socials.networks}>
+        {LINKS.map((link, index) => (
           <a
             key={link.name}
             className={styles.icon}
@@ -62,13 +67,16 @@ export default function Socials() {
             target={link.href.startsWith("mailto:") ? undefined : "_blank"}
             rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
             aria-label={link.name}
+            style={{ animationDelay: `${index * 0.08}s` }}
           >
             <span className={styles.orb}>{link.icon}</span>
             <span className={styles.label}>{link.name}</span>
           </a>
         ))}
       </nav>
-      <p className={styles.copy}>© {year} Nataly Melo. Todos los derechos reservados.</p>
+      <p className={styles.copy}>
+        © {year} Nataly Melo. {t.socials.rights}
+      </p>
     </footer>
   );
 }

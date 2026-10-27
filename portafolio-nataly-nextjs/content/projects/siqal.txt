@@ -1,0 +1,5 @@
+Desarrollo de una plataforma digital para la Secretaría del Trabajo y Previsión Social (STPS), orientada a modernizar la recepción, la gestión y el seguimiento de reportes relacionados con posibles vulneraciones de derechos laborales, accidentes de trabajo e incumplimientos contractuales.
+
+La plataforma integra flujos de interacción diferenciados según el tipo de reporte, formularios para la captura de información y mecanismos para dar continuidad a cada solicitud. De esta manera, transforma procesos de atención ciudadana en una experiencia digital estructurada, y facilita tanto la presentación de reportes como su seguimiento.
+
+El proyecto representa una aplicación de tecnología al servicio público: el desarrollo de software responde a necesidades operativas concretas y contribuye a mejorar la accesibilidad, la organización y la trazabilidad de los procesos institucionales.

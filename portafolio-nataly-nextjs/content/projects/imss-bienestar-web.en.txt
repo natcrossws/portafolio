@@ -1,0 +1,17 @@
+Development of the IMSS-Bienestar national web portal, an institutional platform built to centralize and present information about the organization’s services, programs, and activities.
+
+I took part in building the site end to end: the public interfaces and, centrally, the high-impact editorial sections—news and other urgent publishing channels—where the institution communicates sensitive, time-critical information. For those sections I designed and implemented a purpose-built CMS so content could be published quickly, clearly, and under control, without manual page edits.
+
+The project had to serve both the people who browse the portal and the teams who keep published information up to date.
+
+Web interface development
+-------------------------
+Implementation of the portal’s visual structure and components, organizing institutional content so it is easy to browse and stays coherent across the site.
+
+Content management logic
+------------------------
+Implementation of a CMS focused on news and urgent content sections: create, edit, and publish flows designed so editorial teams can release critical information on time, with a clear structure and without touching the portal’s code.
+
+Interface and administration integration
+----------------------------------------
+Work connecting the public presentation of content with the administration logic, considering both the browsing experience and day-to-day maintenance of institutional information.

@@ -4,11 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FACETS } from "@/lib/facets";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 import styles from "./Identity.module.css";
 
 const INTERVAL_MS = 5000;
 
 export default function Identity() {
+  const { t } = useI18n();
   const [active, setActive] = useState(0);
   const [reduced, setReduced] = useState(false);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
@@ -41,10 +43,11 @@ export default function Identity() {
   }, [reduced]);
 
   return (
-    <section id="identidad" className={styles.section} aria-label="Quién soy">
+    <section id="identidad" className={styles.section} aria-label={t.identity.aria}>
       {FACETS.map((facet, index) => {
+        const copy = t.identity.facets[facet.slug];
         const open = index === active;
-        const label = facet.lines.join(" ");
+        const label = copy.lines.join(" ");
         return (
           <article
             key={facet.slug}
@@ -69,12 +72,12 @@ export default function Identity() {
                 loop
                 playsInline
                 preload="metadata"
-                aria-label={facet.alt}
+                aria-label={copy.alt}
               />
             ) : (
               <Image
                 src={facet.image!}
-                alt={facet.alt}
+                alt={copy.alt}
                 fill
                 priority
                 sizes="(max-width: 720px) 78vw, 45vw"
@@ -84,9 +87,9 @@ export default function Identity() {
               />
             )}
             <div className={styles.caption}>
-              <p className={styles.note}>{facet.note}</p>
+              <p className={styles.note}>{copy.note}</p>
               <h2 className={styles.title}>
-                {facet.lines.map((line) => (
+                {copy.lines.map((line) => (
                   <span key={line} className={styles.line}>
                     {line}
                   </span>
@@ -99,7 +102,7 @@ export default function Identity() {
                 aria-hidden={!open}
                 onClick={(event) => event.stopPropagation()}
               >
-                {facet.cta}
+                {t.identity.explore}
               </Link>
             </div>
           </article>

@@ -28,3 +28,7 @@ Thumbs.db
 
 # Vercel
 .vercel/
+
+# Large media (GitHub max file size is 100MB)
+*.mov
+portafolio-nataly-nextjs/public/mapa_mitologias.mov

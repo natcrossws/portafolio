@@ -1,0 +1,7 @@
+Velavo
+------
+Participation in the UX and interface design of the platform, contributing to the visual presentation of its components and interaction with its features. The work focused on a clear digital experience aligned with users’ needs.
+
+International Affairs
+---------------------
+Design and development of an interactive map integrated into the International Affairs website. The solution presents information through a visual resource that makes exploration and consultation easier, and offers a more dynamic alternative to traditional content presentation.

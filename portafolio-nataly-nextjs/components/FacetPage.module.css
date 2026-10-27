@@ -2,7 +2,7 @@
   position: relative;
   min-height: 100vh;
   min-height: 100dvh;
-  background: #e8e0de;
+  background: var(--crema);
   color: var(--ink);
   overflow: hidden;
 }
@@ -24,7 +24,7 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(232, 224, 222, 0.94) 0%, rgba(232, 224, 222, 0.72) 38%, rgba(232, 224, 222, 0.18) 70%, rgba(232, 224, 222, 0.05) 100%),
+    linear-gradient(90deg, rgba(246, 243, 236, 0.94) 0%, rgba(246, 243, 236, 0.72) 38%, rgba(246, 243, 236, 0.18) 70%, rgba(246, 243, 236, 0.05) 100%),
     linear-gradient(to top, rgba(28, 22, 24, 0.28), transparent 42%);
 }
 
@@ -90,7 +90,7 @@
 @media (max-width: 720px) {
   .shade {
     background:
-      linear-gradient(to top, rgba(232, 224, 222, 0.96) 0%, rgba(232, 224, 222, 0.78) 38%, rgba(232, 224, 222, 0.2) 70%, transparent 100%);
+      linear-gradient(to top, rgba(246, 243, 236, 0.96) 0%, rgba(246, 243, 236, 0.78) 38%, rgba(246, 243, 236, 0.2) 70%, transparent 100%);
   }
 
   .content {

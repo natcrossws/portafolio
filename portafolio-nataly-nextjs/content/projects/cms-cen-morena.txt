@@ -1,0 +1,89 @@
+CMS multi-instancia con publicación estática
+--------------------------------------------
+Plataforma CMS a medida para administrar una red de sitios institucionales
+desde un solo sistema. Cada instancia tiene su propia identidad, navegación y
+contenido, pero comparte la misma base tecnológica, el mismo editor visual y
+el mismo flujo de publicación.
+
+El aporte clave frente a un WordPress tradicional es el modelo de entrega:
+el panel de administración es dinámico; el sitio público se publica como HTML
+estático pre-renderizado. Eso reduce dependencia del servidor en cada visita,
+mejora la sensación de velocidad y permite escalar muchos sitios sin
+multiplicar instalaciones.
+
+
+Problema que resuelve (frente a WordPress)
+------------------------------------
+En un uso típico de WordPress, el visitante casi siempre depende de un CMS
+dinámico “vivo”: temas, plugins y composición se resuelven en tiempo de
+visita. Eso funciona, pero cuando hay muchas sedes o micrositios suele
+terminar en:
+
+  • Varias instalaciones (o un multisite complejo) difíciles de gobernar.
+  • Experiencias de edición distintas según tema/plugins.
+  • Sitios públicos atados al rendimiento y a la lógica del CMS en cada
+    navegación.
+  • Costo alto de mantener coherencia visual y de componentes entre sitios.
+
+Este proyecto cambia el enfoque:
+
+  • Una plataforma, muchas instancias (multi-sitio por diseño).
+  • Un editor visual propio, con bloques reutilizables y reglas comunes.
+  • Al publicar, el contenido se “congela” en páginas HTML autónomas listas
+    para servirse como sitio estático.
+  • El CMS sigue siendo el lugar donde se edita, previsualiza y gobierna;
+    el público consume el resultado ya construido.
+
+
+Arquitectura de software
+------------------------
+1. Núcleo de aplicación
+Orquesta módulos de instancias, páginas, menús, medios, entradas y usuarios. El alcance de trabajo siempre está acotado por instancia: cada sitio se administra como un producto independiente dentro de la misma plataforma.
+
+2. Motor de composición de páginas
+El contenido no es “una plantilla fija”, sino una estructura armable: página → secciones → columnas → componentes. Esa jerarquía es el contrato común entre el editor, la vista previa y la publicación.
+
+3. Pipeline de publicación estática
+Al publicar (página o instancia), un generador toma la composición actual, pre-renderiza componentes, arma el HTML final y actualiza el catálogo del sitio (manifiesto de rutas/páginas + router de navegación). El resultado vive como artefactos listos para hosting estático.
+
+
+Arquitectura de frontend
+------------------------
+Hay dos “frentes” con objetivos distintos:
+
+A) Frontend de administración (producto interno)
+
+• Interfaces server-rendered con plantillas, enriquecidas con interacción en el cliente para flujos de edición.
+• Page builder visual: canvas, paneles de layout y biblioteca de bloques.
+• Misma lógica de render de componentes en el visor de edición y en el HTML publicado, para reducir la brecha entre “lo que edito” y “lo que ve el público”.
+• Módulos de UI para listados, medios, menús multinivel, footers y gestión de instancias.
+
+B) Frontend público (producto final)
+
+• Páginas pre-renderizadas: el visitante recibe HTML ya montado.
+• Navegación basada en un router estático generado a partir del catálogo de páginas publicadas.
+• Componentes ricos (carruseles, galerías, tabs, noticias, personas, documentos, video, etc.) embebidos en el HTML final.
+• Enfoque de entrega liviana: el sitio público no necesita “armar” la página desde cero en cada visita.
+
+
+UX / UI
+-------
+Principios de experiencia que definen el producto:
+
+1. Edición visual sin “pensar en código”
+El editor se siente cercano a herramientas tipo page builder: armar layout, soltar bloques, ajustar contenido y ver el resultado en contexto.
+
+2. Flujo editorial claro
+Borrador → vista previa → publicar / actualizar. La acción de publicar es explícita: el editor decide cuándo el contenido sale al público.
+
+3. Preview alineado con producción
+La vista previa usa el mismo pipeline de componentes que la publicación, para que la decisión de publicar se tome con confianza.
+
+4. Velocidad percibida al publicar
+Actualizar una página publicada se siente ágil porque el sistema prioriza regenerar lo esencial y deja trabajo colateral fuera del camino crítico. El visitante, a su vez, navega HTML ya generado.
+
+5. Biblioteca de bloques orientada a sitios institucionales
+Componentes pensados para landings, noticias, documentos, perfiles, galerías y navegación — no un editor genérico vacío. La página nacional se diseñó y construyó ensamblando esa biblioteca (héroes, noticias, regeneración, redes, personas, galerías, etc.): el mismo bloque que se elige en “Nuevo componente” es el que termina en el HTML público.
+
+6. Multi-instancia sin fricción cognitiva
+Cada sitio se administra en su propio contexto (páginas, menú, medios), pero con la misma experiencia de uso. Eso baja la curva de aprendizaje cuando una persona opera más de una instancia.

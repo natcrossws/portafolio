@@ -1,0 +1,23 @@
+Atlas del mito
+--------------
+Creative coding para mitología clásica e iconografía.
+
+Mitología clásica · Academia
+
+La idea
+-------
+Un atlas interactivo de civilizaciones antiguas. Sobre el mapa, cada civilización cobra vida con animaciones que cuentan sus mitos y su iconografía.
+
+El proyecto cruza mis dos formaciones: la historia del arte y el desarrollo de software. La pregunta es cómo el código puede volver explorable lo que normalmente se lee en un libro.
+
+Dónde va el proyecto
+--------------------
+Ya funcionan el mapa interactivo, las animaciones de las civilizaciones antiguas y el render 3D de la iconografía, construidos con librerías de JavaScript.
+
+Lo que sigue
+------------
+• Ampliar el atlas con más civilizaciones y relatos.
+
+Tecnologías
+-----------
+JavaScript · Mapa interactivo · Animación web · Render 3D

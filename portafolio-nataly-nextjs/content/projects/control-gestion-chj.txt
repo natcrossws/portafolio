@@ -1,0 +1,45 @@
+SII-CNHJ
+--------
+Sistema de trabajo para el ciclo de un asunto jurídico.
+Comisión Nacional de Honestidad y Justicia.
+
+1. De qué se trata
+------------------
+
+El SII-CNHJ es la aplicación con la que la Comisión lleva un asunto de principio a fin: llega un escrito, se turna a una ponencia, se abre expediente, se instruye, se vota cuando el Pleno debe resolver, se publica en estrados lo que ya está listo y, más adelante, se entrega al archivo.
+
+Antes, ese trabajo vivía en hojas de cálculo separadas —oficialía, monitoreo, el máster del Pleno, el inventario—. Cada área tenía su archivo, los folios se repetían, los plazos se vigilaban a mano y no había un solo lugar donde ver el estado del asunto ni quién era responsable.
+
+El sistema reúne ese recorrido en una sola aplicación. Cada persona entra y ve su trabajo según su cargo y, si aplica, su ponencia. Oficialía opera la ventanilla; la Secretaría Técnica vigila plazos; cada ponencia trabaja lo suyo; el Pleno vota, y Archivo cierra el ciclo físico.
+
+2. Arquitectura de software
+---------------------------
+
+Es un monolito modular: una sola aplicación, organizada por capacidades del negocio. Correspondencia, expediente, votación, archivo, seguimiento y administración son módulos. Cada uno concentra lo suyo.
+
+Dentro de cada módulo, la pantalla y las reglas van por separado. La interfaz muestra el trabajo del momento; las reglas del dominio —cuándo nace un expediente, quién arma carpetas, cuándo se cierra una votación, qué ve cada cargo— viven en el servicio de ese módulo.
+
+Hay un núcleo común de identidad y alcance, catálogos, plazos con semáforo, publicación en el sitio de estrados y constancia de acciones. Administrar la plataforma no sustituye el trabajo jurídico: configurar usuarios, catálogos y tiempos es una función distinta a tramitar.
+
+3. Arquitectura de frontend
+---------------------------
+
+Las pantallas se arman en el servidor, dentro de un mismo cascarón de trabajo: menú lateral según el cargo, encabezado institucional y contenido que cambia por tarea —bandeja, expediente, votación, inventario—.
+
+La presentación usa el sistema de diseño institucional, con tipografía, componentes y navegación de aplicación, y una paleta propia en tonos guinda y papel. Cada módulo tiene vistas pensadas para esa tarea; no hay un formulario genérico de “alta de contenido”.
+
+4. Lógica y dinamismo de los datos
+----------------------------------
+
+Un asunto se describe con catálogos —qué documento llegó, por qué vía se tramita, de qué tema es— en lugar de texto libre en columnas sueltas. Los plazos también son configuración: el semáforo (verde, amarillo, rojo) sale de esas reglas y se refleja en el inicio y en las bandejas.
+
+Lo que ve cada persona depende de su cargo. La bandeja, el expediente y el tablero de votación muestran el estado real del asunto, no una captura estática. El expediente nace con la carpeta de ingreso y crece con las secciones que la ponencia arma según el caso.
+
+5. Experiencia de uso
+---------------------
+
+La interfaz habla el lenguaje del trámite: buzón, turno, expediente, carpeta, sesión y archivo.
+
+El inicio resume cuántos asuntos van en tiempo, por vencer o vencidos. La correspondencia se siente como ventanilla: carpetas de color, bandeja y un panel de lectura del escrito. El expediente se recorre como un archivador. La votación es un tablero con documentos, sentido del voto y avance hacia el umbral. Archivo cierra con inventario físico y etiqueta.
+
+Los textos están en español claro, los colores del semáforo significan urgencia y la paleta institucional se mantiene sobria en todas las pantallas.

@@ -1,0 +1,45 @@
+SII-CNHJ
+--------
+A work system for the full cycle of a legal matter.
+National Honesty and Justice Commission.
+
+1. What it is about
+-------------------
+
+SII-CNHJ is the application the Commission uses to take a matter from start to finish: a filing arrives, it is assigned to a chamber, a case file opens, the case is instructed, the Plenary votes when it must decide, ready rulings are published on the bulletin board, and later the file moves to the archive.
+
+Before, that work lived in separate spreadsheets—clerk’s office, monitoring, the Plenary master, inventory. Each area had its own file, folios were duplicated, deadlines were watched by hand, and there was no single place to see a matter’s status or who was responsible.
+
+The system gathers that path into one application. Each person signs in and sees their work by role and, when it applies, by chamber. The clerk’s office runs the intake window; the Technical Secretariat watches deadlines; each chamber handles its own work; the Plenary votes; and Archives closes the physical cycle.
+
+2. Software architecture
+------------------------
+
+It is a modular monolith: one application organized by business capabilities. Correspondence, case file, voting, archives, tracking, and administration are modules. Each concentrates what belongs to it.
+
+Inside each module, the screen and the rules stay separate. The interface shows the work of the moment; domain rules—when a case file is born, who builds folders, when a vote closes, what each role can see—live in that module’s service.
+
+There is a shared core for identity and scope, catalogs, traffic-light deadlines, publication on the bulletin-board site, and action records. Administering the platform does not replace legal work: configuring users, catalogs, and timings is a different function from processing a case.
+
+3. Frontend architecture
+------------------------
+
+Screens are built on the server inside one work shell: a side menu by role, an institutional header, and content that changes by task—inbox, case file, voting, inventory.
+
+Presentation uses the institutional design system, with application typography, components, and navigation, and a palette of burgundy and paper tones. Each module has views designed for that task; there is no generic “create content” form.
+
+4. Data logic and dynamism
+--------------------------
+
+A matter is described with catalogs—what document arrived, which path it follows, what topic it covers—instead of free text in loose columns. Deadlines are also configuration: the traffic light (green, yellow, red) comes from those rules and shows up on the home screen and in the inboxes.
+
+What each person sees depends on their role. The inbox, case file, and voting board show the matter’s real state, not a static snapshot. The case file begins with the intake folder and grows with the sections the chamber builds for the case.
+
+5. User experience
+------------------
+
+The interface speaks the language of the procedure: mailbox, assignment, case file, folder, session, and archive.
+
+The home screen summarizes how many matters are on time, due soon, or overdue. Correspondence feels like a service window: colored folders, an inbox, and a reading panel for the filing. The case file is browsed like a filing cabinet. Voting is a board with documents, vote direction, and progress toward the threshold. Archives closes with physical inventory and labeling.
+
+Copy is in clear Spanish, traffic-light colors mean urgency, and the institutional palette stays sober across every screen.

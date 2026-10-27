@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bodoni_Moda, Caveat, IBM_Plex_Mono } from "next/font/google";
+import Providers from "@/components/Providers";
+import SideNav from "@/components/SideNav";
 import "./globals.css";
 
 const bodoni = Bodoni_Moda({
@@ -30,15 +32,25 @@ export const metadata: Metadata = {
     "Portafolio de Nataly Melo: ingeniera de software que hace arte con código.",
 };
 
+export const viewport: Viewport = {
+  themeColor: "#f6f3ec",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={`${bodoni.variable} ${caveat.variable} ${plexMono.variable}`}>
-        {children}
+    <html lang="es" suppressHydrationWarning>
+      <body
+        className={`${bodoni.variable} ${caveat.variable} ${plexMono.variable}`}
+        suppressHydrationWarning
+      >
+        <Providers>
+          <SideNav />
+          {children}
+        </Providers>
       </body>
     </html>
   );

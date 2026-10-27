@@ -1,0 +1,3 @@
+Desarrollo de una experiencia de evaluación interactiva para el sistema de bolsa de trabajo de IMSS-Bienestar, mediante una interfaz dinámica que permitía a las personas candidatas organizar y jerarquizar elementos a través de interacciones de arrastrar y soltar (drag and drop).
+
+La solución integró la manipulación visual de los elementos con una lógica de identificación basada en su posición y orden, y permitió traducir las decisiones de la persona usuaria en respuestas estructuradas para las pruebas psicométricas. El resultado fue una experiencia que combinaba interacción intuitiva y procesamiento lógico, e incorporaba dinámicas visuales como parte esencial del proceso de evaluación digital.

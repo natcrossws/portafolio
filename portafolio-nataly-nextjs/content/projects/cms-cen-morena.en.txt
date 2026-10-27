@@ -1,0 +1,72 @@
+Multi-instance CMS with static publishing
+-----------------------------------------
+A custom CMS platform to run a network of institutional sites from one system. Each instance keeps its own identity, navigation, and content, while sharing the same technology base, the same visual editor, and the same publishing flow.
+
+The key contribution versus traditional WordPress is the delivery model: the admin panel is dynamic; the public site is published as pre-rendered static HTML. That reduces server dependence on every visit, improves perceived speed, and lets many sites scale without multiplying installations.
+
+Problem it solves (versus WordPress)
+------------------------------------
+In a typical WordPress setup, the visitor almost always depends on a “live” dynamic CMS: themes, plugins, and composition resolve at request time. That works, but with many offices or microsites it often ends in:
+
+  • Several installs (or a complex multisite) that are hard to govern.
+  • Different editing experiences depending on theme/plugins.
+  • Public sites tied to CMS performance and logic on every navigation.
+  • High cost of keeping visual and component consistency across sites.
+
+This project changes the approach:
+
+  • One platform, many instances (multi-site by design).
+  • A custom visual editor, with reusable blocks and shared rules.
+  • On publish, content is “frozen” into autonomous HTML pages ready to serve as a static site.
+  • The CMS remains where content is edited, previewed, and governed; the public consumes the built result.
+
+Software architecture
+---------------------
+1. Application core
+Orchestrates instance, page, menu, media, entry, and user modules. Work scope is always bounded by instance: each site is administered as an independent product inside the same platform.
+
+2. Page composition engine
+Content is not “one fixed template,” but an assemblable structure: page → sections → columns → components. That hierarchy is the shared contract between the editor, preview, and publishing.
+
+3. Static publishing pipeline
+On publish (page or instance), a generator takes the current composition, pre-renders components, builds final HTML, and updates the site catalog (route/page manifest + navigation router). The result lives as artifacts ready for static hosting.
+
+Frontend architecture
+---------------------
+There are two “fronts” with different goals:
+
+A) Admin frontend (internal product)
+
+• Server-rendered interfaces with templates, enriched with client interaction for editing flows.
+• Visual page builder: canvas, layout panels, and a block library.
+• The same component-render logic in the editing viewer and in published HTML, to reduce the gap between “what I edit” and “what the public sees.”
+• UI modules for listings, media, multilevel menus, footers, and instance management.
+
+B) Public frontend (final product)
+
+• Pre-rendered pages: the visitor receives HTML already assembled.
+• Navigation based on a static router generated from the catalog of published pages.
+• Rich components (carousels, galleries, tabs, news, people, documents, video, etc.) embedded in the final HTML.
+• Lightweight delivery: the public site does not need to “build” the page from scratch on every visit.
+
+UX / UI
+-------
+Experience principles that define the product:
+
+1. Visual editing without “thinking in code”
+The editor feels close to page-builder tools: assemble layout, drop blocks, adjust content, and see the result in context.
+
+2. Clear editorial flow
+Draft → preview → publish / update. Publishing is explicit: the editor decides when content goes public.
+
+3. Preview aligned with production
+Preview uses the same component pipeline as publishing, so the publish decision is made with confidence.
+
+4. Perceived speed when publishing
+Updating a published page feels agile because the system prioritizes regenerating what matters and keeps collateral work off the critical path. Visitors, in turn, browse already generated HTML.
+
+5. Block library aimed at institutional sites
+Components designed for landings, news, documents, profiles, galleries, and navigation—not an empty generic editor. The national page was designed and built by composing that library (heroes, news, Regeneración, social, people, galleries, and more): the same block chosen in “New component” is what ends up in the public HTML.
+
+6. Multi-instance without cognitive friction
+Each site is administered in its own context (pages, menu, media), but with the same user experience. That lowers the learning curve when someone operates more than one instance.

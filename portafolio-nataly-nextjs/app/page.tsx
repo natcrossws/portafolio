@@ -1,12 +1,14 @@
+import About from "@/components/About";
 import Hero from "@/components/Hero";
-import Identity from "@/components/Identity";
+import Portfolio from "@/components/Portfolio";
 import Socials from "@/components/Socials";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <Identity />
+      <About />
+      <Portfolio />
       <Socials />
     </main>
   );

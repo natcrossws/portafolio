@@ -1,0 +1,37 @@
+Whisper of the Sound
+--------------------
+Generative art with neural networks: digital painting driven by live instrumental sound.
+
+In progress · Listening lab
+
+The idea
+--------
+A live performance—piano, voice, or percussion—generates textures that accumulate, deform, and dissolve. The image remembers what it heard, and silence empties it.
+
+I am not aiming for the piece to identify instruments with precision, but to listen to behavior: energy, attacks, tonality, noise. That is the difference between a work that listens and a visualizer that only reacts to volume.
+
+Where the project stands
+------------------------
+The project moves lesson by lesson, each one documented. The first is already working: a listening lab in the browser that captures the microphone and shows in real time what arrives.
+
+• Capture without videocall processing, so harmonics are not clipped.
+• Waveform, logarithmic-scale spectrum, and a level meter with peak.
+• Pitch and note detection (C1 to C7), with deviation in cents.
+• Real-time classification among voice, tonal sound, percussion, and noise.
+• Instrument recognition with an AI model (AST/AudioSet) running in the browser.
+• First seeds of memory: peaks that decay and notes that sustain.
+
+In parallel I am working the visual line: a StyleGAN2 model trained on paint textures.
+
+What comes next
+---------------
+1. Listen by bands: lows, mids, and highs as their own signals, plus attack detection.
+2. Distinguish music from noise and read the behavior of sound.
+3. First generative canvas: particles, Perlin noise, screen persistence, and shaders.
+4. Controls to test live how each sound translates into image.
+
+The map of the work: lows → dense motion · mids → fluid · highs → particles · amplitude → deformation · rhythm → pulses · silence → dissolution.
+
+Technologies
+------------
+JavaScript · Web Audio API · Transformers.js · AST/AudioSet · StyleGAN2 · p5.js (coming soon)

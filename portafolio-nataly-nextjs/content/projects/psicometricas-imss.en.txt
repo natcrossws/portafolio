@@ -1,0 +1,3 @@
+Development of an interactive assessment experience for the IMSS-Bienestar job-board system, through a dynamic interface that let candidates organize and rank elements using drag-and-drop interactions.
+
+The solution combined visual manipulation of elements with identification logic based on position and order, translating the user’s decisions into structured answers for psychometric tests. The result was an experience that mixed intuitive interaction and logical processing, with visual dynamics as an essential part of the digital assessment process.

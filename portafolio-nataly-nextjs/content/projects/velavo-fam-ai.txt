@@ -1,0 +1,7 @@
+Velavo
+------
+Participación en el diseño de experiencia de usuario e interfaz de la plataforma, con aporte a la presentación visual de sus componentes y a la interacción con sus funcionalidades. El trabajo se enfocó en una experiencia digital clara y coherente con las necesidades de las personas usuarias.
+
+Asuntos Internacionales
+-----------------------
+Diseño y desarrollo de un mapa interactivo integrado en el sitio web del área de Asuntos Internacionales. Esta solución presenta la información mediante un recurso visual que facilita su exploración y consulta, y ofrece una alternativa más dinámica a la presentación tradicional de contenidos.

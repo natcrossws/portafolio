@@ -1,24 +1,32 @@
 :root {
-  --bosque: #164430;
-  --bosque-mid: #445e42;
-  --vino: #8b5e72;
-  --vino-hover: #a07086;
-  --rosa: #f3aeb7;
-  --rosa-soft: #fad7d1;
-  --oro: #e9c742;
-  --sage: #a7ad7d;
-  --crema: #f3f0e7;
-  --crema-soft: #fad7d1;
-  --crema-bg: #ecd7c8;
-  --azul: #164430;
-  --ink: #333031;
-  --ink-soft: #333031;
-  --gray-1: #5f6351;
-  --gray-2: #8a7672;
-  --gray-3: #8e8282;
-  --gray-4: #85a085;
-  --gray-5: #d9b7c2;
-  --gray-6: #e5d7c5;
+  --violeta: #7b5cff;
+  --rosa: #fe507b;
+  --rosa-claro: #fe9bca;
+  --naranja: #fe6a3c;
+  --ambar: #ffb240;
+  --amarillo: #ffd84b;
+  --azul: #4c7bff;
+
+  --crema: #f6f3ec;
+  --crema-soft: var(--rosa-claro);
+  --crema-bg: var(--crema);
+  --ink: #2b2729;
+  --ink-soft: #3d383a;
+
+  --vino: var(--violeta);
+  --vino-hover: var(--rosa);
+  --oro: var(--ambar);
+  --bosque: var(--violeta);
+  --bosque-mid: var(--azul);
+  --sage: var(--ambar);
+  --rosa-soft: var(--rosa-claro);
+
+  --gray-1: #5c5658;
+  --gray-2: #7a7376;
+  --gray-3: #8e8688;
+  --gray-4: #d4c6ea;
+  --gray-5: #f3d5e6;
+  --gray-6: #f8e7c8;
 
   --font-serif: var(--font-bodoni), "Times New Roman", serif;
   --font-script: var(--font-caveat), cursive;
@@ -31,7 +39,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -39,6 +47,12 @@ body {
   background: var(--crema-bg);
   color: var(--ink);
   font-family: system-ui, sans-serif;
+}
+
+@media (max-width: 820px) {
+  body {
+    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 img {

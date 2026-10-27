@@ -1,0 +1,37 @@
+Whisper of the Sound
+--------------------
+Arte generativo con redes neuronales: pintura digital impulsada por sonido instrumental en vivo.
+
+En desarrollo · Laboratorio de escucha
+
+La idea
+-------
+Una interpretación en vivo —piano, voz o percusión— genera texturas que se acumulan, se deforman y se disuelven. La imagen recuerda lo que escuchó, y el silencio la vacía.
+
+No busco que la obra identifique instrumentos con precisión, sino que escuche comportamiento: energía, ataques, tonalidad, ruido. Esa es la diferencia entre una obra que escucha y un visualizador que solo reacciona al volumen.
+
+Dónde va el proyecto
+--------------------
+El proyecto avanza por lecciones, cada una documentada. Hoy funciona la primera: un laboratorio de escucha en el navegador que capta el micrófono y muestra en tiempo real lo que llega.
+
+• Captura sin el procesamiento de videollamada, para no recortar armónicos.
+• Forma de onda, espectro en escala logarítmica y medidor de nivel con pico.
+• Detección de tono y nota (de C1 a C7), con su desviación en cents.
+• Clasificación en tiempo real entre voz, sonido tonal, percusión y ruido.
+• Reconocimiento de instrumentos con un modelo de IA (AST/AudioSet) que corre en el navegador.
+• Primeras semillas de memoria: picos que decaen y notas que se sostienen.
+
+En paralelo trabajo la línea visual: un modelo StyleGAN2 entrenado con texturas de pintura.
+
+Lo que sigue
+------------
+1. Escuchar por bandas: graves, medios y agudos como señales propias, y detección de ataques.
+2. Distinguir la música del ruido y leer el comportamiento del sonido.
+3. Primer lienzo generativo: partículas, ruido Perlin, persistencia en pantalla y shaders.
+4. Controles para probar en vivo cómo cada sonido se traduce en imagen.
+
+El mapa de la obra: graves → movimiento denso · medios → fluido · agudos → partículas · amplitud → deformación · ritmo → pulsos · silencio → disolución.
+
+Tecnologías
+-----------
+JavaScript · Web Audio API · Transformers.js · AST/AudioSet · StyleGAN2 · p5.js (próximamente)

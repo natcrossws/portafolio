@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 190" width="500" height="190">
+<title>GOOarquitectos - Masa - version hueso</title>
+<rect x="0" y="0" width="500" height="190" fill="#F4EFE9"/>
+<path d="M88 64 L145.16 97 L126.1 108 L88 86 L75.88 93 L94.93 104 L88 108 L49.9 86 Z" fill="#FBF7F1"/>
+<path d="M88 30 L145.16 63 L145.16 97 L88 64 Z" fill="#D3CCC0"/>
+<path d="M88 30 L49.9 52 L49.9 86 L88 64 Z" fill="#EFEAE2"/>
+<path d="M75.88 59 L94.93 70 L94.93 104 L75.88 93 Z" fill="#D3CCC0"/>
+<path d="M88 8 L164.20999999999998 52 L145.16 63 L88 30 L49.9 52 L88 74 L94.93 70 L75.88 59 L88 52 L126.1 74 L88 96 L11.790000000000006 52 Z" fill="#3A3734"/>
+<path d="M164.20999999999998 52 L145.16 63 L145.16 97 L164.20999999999998 86 Z" fill="#14110F"/>
+<path d="M126.1 74 L88 96 L88 130 L126.1 108 Z" fill="#14110F"/>
+<path d="M11.790000000000006 52 L88 96 L88 130 L11.790000000000006 86 Z" fill="#26231F"/><path d="M250 64 L288.1 86 L250 108 L211.9 86 Z" fill="#FBF7F1"/>
+<path d="M250 30 L288.1 52 L288.1 86 L250 64 Z" fill="#D3CCC0"/>
+<path d="M250 30 L211.9 52 L211.9 86 L250 64 Z" fill="#EFEAE2"/>
+<path d="M250 8 L326.21 52 L250 96 L173.79000000000002 52 Z M250 30 L288.1 52 L250 74 L211.9 52 Z" fill="#3A3734" fill-rule="evenodd"/>
+<path d="M326.21 52 L250 96 L250 130 L326.21 86 Z" fill="#14110F"/>
+<path d="M173.79000000000002 52 L250 96 L250 130 L173.79000000000002 86 Z" fill="#26231F"/><path d="M412 64 L450.1 86 L412 108 L373.9 86 Z" fill="#FBF7F1"/>
+<path d="M412 30 L450.1 52 L450.1 86 L412 64 Z" fill="#D3CCC0"/>
+<path d="M412 30 L373.9 52 L373.9 86 L412 64 Z" fill="#EFEAE2"/>
+<path d="M412 8 L488.21 52 L412 96 L335.79 52 Z M412 30 L450.1 52 L412 74 L373.9 52 Z" fill="#3A3734" fill-rule="evenodd"/>
+<path d="M488.21 52 L412 96 L412 130 L488.21 86 Z" fill="#14110F"/>
+<path d="M335.79 52 L412 96 L412 130 L335.79 86 Z" fill="#26231F"/>
+<text x="254" y="168" text-anchor="middle" fill="#1B1A18" font-family="Poppins,sans-serif" font-size="15" font-weight="300" letter-spacing="9.5">ARQUITECTOS</text>
+</svg>

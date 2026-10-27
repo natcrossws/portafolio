@@ -1,9 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { Facet } from "@/lib/facets";
+import type { FacetMedia } from "@/lib/facets";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 import styles from "./FacetPage.module.css";
 
-export default function FacetPage({ facet }: { facet: Facet }) {
+export default function FacetPage({ facet }: { facet: FacetMedia }) {
+  const { t } = useI18n();
+  const copy = t.identity.facets[facet.slug];
+
   return (
     <main className={styles.page}>
       <div className={styles.media}>
@@ -15,12 +21,12 @@ export default function FacetPage({ facet }: { facet: Facet }) {
             loop
             autoPlay
             playsInline
-            aria-label={facet.alt}
+            aria-label={copy.alt}
           />
         ) : (
           <Image
             src={facet.image!}
-            alt={facet.alt}
+            alt={copy.alt}
             fill
             priority
             sizes="100vw"
@@ -33,16 +39,16 @@ export default function FacetPage({ facet }: { facet: Facet }) {
       </div>
 
       <div className={styles.content}>
-        <Link href="/#identidad" className={styles.back}>
-          ← Volver
+        <Link href="/#portafolio" className={styles.back}>
+          ← {t.facetPage.back}
         </Link>
-        <p className={styles.note}>{facet.note}</p>
+        <p className={styles.note}>{copy.note}</p>
         <h1 className={styles.title}>
-          {facet.lines.map((line) => (
+          {copy.lines.map((line) => (
             <span key={line}>{line}</span>
           ))}
         </h1>
-        <p className={styles.lead}>{facet.lead}</p>
+        <p className={styles.lead}>{copy.lead}</p>
       </div>
     </main>
   );

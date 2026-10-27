@@ -1,0 +1,5 @@
+Development of a digital platform for Mexico’s Ministry of Labor and Social Welfare (STPS), aimed at modernizing the intake, management, and follow-up of reports related to possible labor-rights violations, workplace accidents, and contractual breaches.
+
+The platform integrates differentiated interaction flows by report type, forms for information capture, and mechanisms to keep each request moving. In this way, citizen-service processes become a structured digital experience that makes both filing and follow-up easier.
+
+The project is an application of technology in public service: software development responds to concrete operational needs and helps improve accessibility, organization, and traceability of institutional processes.

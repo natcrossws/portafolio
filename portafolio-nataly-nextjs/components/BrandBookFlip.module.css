@@ -1,0 +1,474 @@
+.stage {
+  display: grid;
+  gap: 1.15rem;
+  justify-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.book {
+  position: relative;
+  perspective: 2200px;
+  transition:
+    width 0.55s cubic-bezier(0.22, 0.9, 0.3, 1),
+    aspect-ratio 0.55s cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+.bookClosed {
+  height: min(86vh, 900px);
+  width: min(100%, calc(min(86vh, 900px) * 0.75));
+  aspect-ratio: 3 / 4;
+}
+
+.bookOpen {
+  height: min(86vh, 900px);
+  width: min(100%, calc(min(86vh, 900px) * 1.5));
+  aspect-ratio: 3 / 2;
+}
+
+.bookPending {
+  height: min(70vh, 720px);
+  width: min(100%, calc(min(70vh, 720px) * 1.5));
+  aspect-ratio: 3 / 2;
+}
+
+.bookCompact {
+  width: min(100%, 340px, calc((70dvh - 4rem) * 0.75));
+  aspect-ratio: 3 / 4;
+  max-height: min(70dvh, 520px);
+  transition: none;
+  touch-action: pan-y;
+  overflow: hidden;
+}
+
+.frame,
+.compactFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.compactFrame {
+  border-radius: 0.45rem 0.9rem 0.9rem 0.45rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow:
+    0 22px 44px rgba(30, 24, 40, 0.16),
+    0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+.compactFrame::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  width: 9px;
+  background: linear-gradient(
+    90deg,
+    rgba(30, 24, 40, 0.16),
+    rgba(255, 255, 255, 0.4) 48%,
+    rgba(30, 24, 40, 0.05)
+  );
+  pointer-events: none;
+}
+
+.compactSheet {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+}
+
+.compactUnder {
+  z-index: 1;
+}
+
+.compactTop {
+  z-index: 2;
+}
+
+.slideNext {
+  animation: slideOutLeft 0.38s cubic-bezier(0.22, 0.9, 0.3, 1) forwards;
+}
+
+.slidePrev {
+  animation: slideInRight 0.38s cubic-bezier(0.22, 0.9, 0.3, 1) forwards;
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-18%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(-14%);
+    opacity: 0.35;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.spread {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 0.45rem 1rem 1rem 0.45rem;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, #d9d4ce 0 50%, transparent 50%),
+    #f4f0ea;
+  box-shadow:
+    0 28px 56px rgba(30, 24, 40, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.5) inset;
+  transform-style: preserve-3d;
+}
+
+.spreadCover {
+  grid-template-columns: 1fr;
+  border-radius: 0.35rem 0.85rem 0.85rem 0.35rem;
+  background: #fff;
+}
+
+.spreadUnder {
+  z-index: 1;
+}
+
+.spreadTop {
+  z-index: 2;
+}
+
+.spreadGhost {
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.spreadGhost .spine {
+  display: none;
+}
+
+.spine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  z-index: 6;
+  width: 20px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    rgba(30, 24, 40, 0.22),
+    rgba(255, 255, 255, 0.5) 45%,
+    rgba(30, 24, 40, 0.16)
+  );
+  box-shadow: 0 0 22px rgba(30, 24, 40, 0.1);
+  pointer-events: none;
+}
+
+.leaf,
+.leafBlank,
+.leafGhost {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.leaf,
+.leafBlank {
+  background: #fff;
+}
+
+.leafGhost {
+  background: transparent;
+}
+
+.leafLeft {
+  border-right: 1px solid rgba(43, 39, 41, 0.05);
+  background:
+    linear-gradient(90deg, rgba(30, 24, 40, 0.06), transparent 24%),
+    #fff;
+}
+
+.leafRight {
+  background:
+    linear-gradient(270deg, rgba(30, 24, 40, 0.045), transparent 22%),
+    #fff;
+}
+
+.leafCover {
+  background: #fff;
+}
+
+.leafImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  background: #fff;
+  user-select: none;
+  pointer-events: none;
+}
+
+.bookCompact .leafImage {
+  object-fit: contain;
+  object-position: center;
+}
+
+.rightStack {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.flipLeaf {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  z-index: 4;
+}
+
+.flipLeafBack {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #e8e2d8, #f6f2eb 42%, #efe9e0);
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-left: 1px solid rgba(43, 39, 41, 0.08);
+}
+
+.flipLeaf > .leaf,
+.flipLeaf > .leafBlank {
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flipCoverOpen {
+  animation: coverOpen 0.64s cubic-bezier(0.22, 0.9, 0.3, 1) forwards;
+}
+
+.flipCoverClose {
+  animation: coverClose 0.64s cubic-bezier(0.22, 0.9, 0.3, 1) forwards;
+}
+
+.flipLeafNext {
+  animation: pageTurnNext 0.64s cubic-bezier(0.22, 0.9, 0.3, 1) forwards;
+}
+
+.flipLeafPrev {
+  animation: pageTurnPrev 0.64s cubic-bezier(0.22, 0.9, 0.3, 1) forwards;
+}
+
+@keyframes coverOpen {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: 0 0 0 transparent;
+  }
+  45% {
+    box-shadow: 16px 0 34px rgba(30, 24, 40, 0.24);
+  }
+  100% {
+    transform: rotateY(-178deg);
+    box-shadow: -8px 0 22px rgba(30, 24, 40, 0.12);
+  }
+}
+
+@keyframes coverClose {
+  0% {
+    transform: rotateY(-178deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes pageTurnNext {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: 0 0 0 transparent;
+  }
+  45% {
+    box-shadow: 14px 0 30px rgba(30, 24, 40, 0.2);
+  }
+  100% {
+    transform: rotateY(-178deg);
+    box-shadow: -6px 0 18px rgba(30, 24, 40, 0.1);
+  }
+}
+
+@keyframes pageTurnPrev {
+  0% {
+    transform: rotateY(-178deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+.hotspot {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 8;
+  width: 28%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hotspot:disabled {
+  cursor: default;
+}
+
+.hotspotPrev {
+  left: 0;
+}
+
+.hotspotNext {
+  right: 0;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  height: 2.75rem;
+  padding: 0 0.95rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--project-accent) 10%, #fff);
+  border-color: color-mix(in srgb, var(--project-accent) 35%, transparent);
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.count {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-2);
+}
+
+.hint {
+  margin: 0;
+  width: 100%;
+  max-width: 28ch;
+  padding: 0 0.5rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  line-height: 1.45;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-3);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1100px) {
+  .bookClosed,
+  .bookOpen {
+    height: min(78vh, 760px);
+  }
+
+  .bookClosed {
+    width: min(100%, calc(min(78vh, 760px) * 0.75));
+  }
+
+  .bookOpen {
+    width: min(100%, calc(min(78vh, 760px) * 1.5));
+  }
+}
+
+@media (max-width: 760px) {
+  .bookCompact {
+    width: min(100%, 360px, calc((72dvh - 5rem) * 0.75));
+    max-height: min(72dvh, 560px);
+  }
+
+  .controls {
+    width: 100%;
+    max-width: 360px;
+    gap: 0.65rem;
+  }
+
+  .hotspot {
+    width: 36%;
+  }
+
+  .btn {
+    min-width: 2.85rem;
+    height: 2.85rem;
+  }
+
+  .hint {
+    max-width: 22ch;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book {
+    transition: none;
+  }
+
+  .flipCoverOpen,
+  .flipCoverClose,
+  .flipLeafNext,
+  .flipLeafPrev,
+  .slideNext,
+  .slidePrev {
+    animation: none;
+  }
+}

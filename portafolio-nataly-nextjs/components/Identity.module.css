@@ -1,5 +1,5 @@
 .section {
-  background: #e8e0de;
+  background: var(--crema);
   height: 100vh;
   height: 100dvh;
   padding: 12px;
@@ -13,7 +13,7 @@
   flex: 1 1 0;
   min-width: 0;
   overflow: hidden;
-  background: #cfc6c2;
+  background: color-mix(in srgb, var(--ink) 8%, var(--crema));
   transition: flex-grow 0.7s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
