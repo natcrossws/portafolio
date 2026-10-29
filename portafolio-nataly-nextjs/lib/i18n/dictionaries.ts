@@ -157,8 +157,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
       paragraphs: [
         "¡Hola! Soy Nataly Melo, Creative Technologist con formación en Ingeniería de Software y estudiante de Historia del Arte y Música.",
         "Cuento con más de cinco años de experiencia en desarrollo de software, creando sitios web, aplicaciones y soluciones digitales. Combino programación, desarrollo de interfaces y resolución de problemas para transformar ideas en experiencias digitales funcionales.",
-        "Mi formación artística alimenta mi interés por explorar nuevas posibilidades creativas a través de la tecnología, en especial la interacción entre código, sonido e imagen.",
-        "Fuera del código, recorro museos, estudio la cultura visual y toco el piano: encuentro inspiración donde se cruzan el arte, la música y la tecnología.",
+        "Mi formación artística alimenta mi interés por explorar nuevas posibilidades creativas a través de la tecnología.",
+        "Fuera del código, me gusta leer, recorrer museos, estudiar la cultura visual. Encuentro inspiración en el arte, la música y en personas que también hacen cosas increíbles.",
       ],
       stats: [
         { value: "5+ años", label: "desarrollando software" },
@@ -339,8 +339,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
       paragraphs: [
         "Hi! I'm Nataly Melo, a Creative Technologist with a background in Software Engineering and a student of Art History and Music.",
         "I have over five years of experience in software development, building websites, applications, and digital solutions. I combine programming, interface development, and problem-solving to turn ideas into functional digital experiences.",
-        "My artistic training fuels my interest in exploring new creative possibilities through technology, especially the interplay of code, sound, and image.",
-        "Away from code, I visit museums, study visual culture, and play the piano: I find inspiration where art, music, and technology meet.",
+        "My artistic training fuels my interest in exploring new creative possibilities through technology.",
+        "Away from code, I like to read, visit museums, and study visual culture. I find inspiration in art, music, and in people who also make incredible things.",
       ],
       stats: [
         { value: "5+ years", label: "building software" },

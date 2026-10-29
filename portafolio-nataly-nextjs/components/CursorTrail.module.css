@@ -33,7 +33,7 @@
   mix-blend-mode: soft-light;
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce), (pointer: coarse), (max-width: 820px) {
   .root {
     display: none;
   }

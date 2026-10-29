@@ -96,8 +96,10 @@
   color: var(--crema);
 }
 
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   .section {
-    min-height: 100svh;
+    scroll-snap-align: none;
+    min-height: auto;
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
   }
 }

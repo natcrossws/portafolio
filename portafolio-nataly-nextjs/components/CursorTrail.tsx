@@ -48,11 +48,20 @@ export default function CursorTrail() {
   const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const sync = () => setReduced(media.matches);
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const coarse = window.matchMedia("(pointer: coarse)");
+    const narrow = window.matchMedia("(max-width: 820px)");
+    const sync = () =>
+      setReduced(motion.matches || coarse.matches || narrow.matches);
     sync();
-    media.addEventListener("change", sync);
-    return () => media.removeEventListener("change", sync);
+    motion.addEventListener("change", sync);
+    coarse.addEventListener("change", sync);
+    narrow.addEventListener("change", sync);
+    return () => {
+      motion.removeEventListener("change", sync);
+      coarse.removeEventListener("change", sync);
+      narrow.removeEventListener("change", sync);
+    };
   }, []);
 
   useEffect(() => {

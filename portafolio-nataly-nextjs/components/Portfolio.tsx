@@ -161,11 +161,24 @@ export default function Portfolio() {
                   <nav className={styles.pager} aria-label={t.portfolio.pagination}>
                     <button
                       type="button"
-                      className={styles.pagerBtn}
+                      className={`${styles.pagerBtn} ${styles.pagerBtnPrev}`}
                       disabled={paged.page <= 1}
+                      aria-label={t.portfolio.prev}
                       onClick={() => setPage((current) => Math.max(1, current - 1))}
                     >
-                      {t.portfolio.prev}
+                      <span className={styles.pagerIcon} aria-hidden="true">
+                        <svg className={styles.pagerGlyph} viewBox="0 0 16 16">
+                          <path
+                            d="M12.6 8H4.1M7.5 4.5 4 8l3.5 3.5"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </span>
+                      <span className={styles.pagerLabel}>{t.portfolio.prev}</span>
                     </button>
                     <p className={styles.pagerStatus}>
                       {t.portfolio.pageOf
@@ -174,13 +187,26 @@ export default function Portfolio() {
                     </p>
                     <button
                       type="button"
-                      className={styles.pagerBtn}
+                      className={`${styles.pagerBtn} ${styles.pagerBtnNext}`}
                       disabled={paged.page >= paged.totalPages}
+                      aria-label={t.portfolio.next}
                       onClick={() =>
                         setPage((current) => Math.min(paged.totalPages, current + 1))
                       }
                     >
-                      {t.portfolio.next}
+                      <span className={styles.pagerLabel}>{t.portfolio.next}</span>
+                      <span className={styles.pagerIcon} aria-hidden="true">
+                        <svg className={styles.pagerGlyph} viewBox="0 0 16 16">
+                          <path
+                            d="M3.4 8h8.5M8.5 4.5 12 8l-3.5 3.5"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </span>
                     </button>
                   </nav>
                 ) : null}

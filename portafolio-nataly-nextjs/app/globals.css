@@ -50,6 +50,11 @@ body {
 }
 
 @media (max-width: 820px) {
+  /* Mandatory snap fights tall sections on touch; free scroll on phones */
+  html {
+    scroll-snap-type: none;
+  }
+
   body {
     padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
   }

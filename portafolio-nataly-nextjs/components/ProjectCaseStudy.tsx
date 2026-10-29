@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useRef, type ReactNode } from "react";
 import type { Locale } from "@/lib/i18n/dictionaries";
 import { useI18n } from "@/lib/i18n/I18nProvider";
-import BrandBookFlip from "@/components/BrandBookFlip";
 import { CMS_CASE_STUDY } from "@/lib/cmsCaseStudy";
 import {
   groupContentSections,
@@ -348,66 +347,31 @@ function BrandArchitectureBody({
   project: PortfolioProject;
   locale: Locale;
 }) {
-  const manualPages = [
-    {
-      src: "/branding/kemarketing/manual-portada.png",
-      alt:
-        locale === "es"
-          ? "Portada del Manual de Identidad Corporativa KeMarketing"
-          : "KeMarketing Corporate Identity Manual cover",
-    },
-    {
-      src: "/branding/kemarketing/manual-identidad.png",
-      alt:
-        locale === "es"
-          ? "Nuestra identidad visual y valores KeMarketing"
-          : "KeMarketing visual identity and values",
-    },
-    {
-      src: "/branding/kemarketing/manual-logotipo.png",
-      alt:
-        locale === "es"
-          ? "Logotipo horizontal y vertical KeMarketing"
-          : "KeMarketing horizontal and vertical logo",
-    },
-    {
-      src: "/branding/kemarketing/manual-paleta.png",
-      alt:
-        locale === "es"
-          ? "Paleta de colores KeMarketing"
-          : "KeMarketing color palette",
-    },
-    {
-      src: "/branding/kemarketing/manual-arquitectura.png",
-      alt:
-        locale === "es"
-          ? "Arquitectura de marca KeMarketing"
-          : "KeMarketing brand architecture",
-    },
-  ];
+  const logo = project.screenshots[0] ?? {
+    src: project.image,
+    alt: project.title,
+  };
 
   return (
     <>
+      <figure className={styles.brandLogoStage}>
+        <Image
+          src={logo.src}
+          alt={logo.alt[locale]}
+          width={720}
+          height={720}
+          quality={95}
+          priority
+          className={styles.brandLogoImage}
+        />
+      </figure>
+
       <aside className={styles.institutionCard}>
         <p className={styles.heroLeadEyebrow}>
           {locale === "es" ? "Por qué importa" : "Why it matters"}
         </p>
         <p className={styles.heroLead}>{project.institutionNote[locale]}</p>
       </aside>
-
-      <section aria-labelledby="brandbook-title">
-        <div className={styles.sectionHead}>
-          <h2 id="brandbook-title" className={styles.sectionTitle}>
-            {locale === "es" ? "Manual de marca" : "Brand manual"}
-          </h2>
-          <p className={styles.sectionLead}>
-            {locale === "es"
-              ? "Recorre el manual de identidad Ke como un libro impreso."
-              : "Browse the Ke identity manual like a printed book."}
-          </p>
-        </div>
-        <BrandBookFlip pages={manualPages} locale={locale} />
-      </section>
 
       <section aria-labelledby="brand-pillars-title">
         <div className={styles.sectionHead}>

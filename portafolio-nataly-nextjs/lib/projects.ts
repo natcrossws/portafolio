@@ -1092,39 +1092,6 @@ export const projects: PortfolioProject[] = [
           en: "KeMarketing",
         },
       },
-      {
-        src: "/branding/kemarketing/keServicios_logocorto.png",
-        alt: {
-          es: "Logo KeServicios",
-          en: "KeServicios logo",
-        },
-        caption: {
-          es: "KeServicios",
-          en: "KeServicios",
-        },
-      },
-      {
-        src: "/branding/kemarketing/keEscuelira_logoCorto.jpg",
-        alt: {
-          es: "Logo KeEscuelita",
-          en: "KeEscuelita logo",
-        },
-        caption: {
-          es: "KeEscuelita",
-          en: "KeEscuelita",
-        },
-      },
-      {
-        src: "/branding/kemarketing/KePlayas_logoHorizontal.png",
-        alt: {
-          es: "Logo KePlayas",
-          en: "KePlayas logo",
-        },
-        caption: {
-          es: "KePlayas",
-          en: "KePlayas",
-        },
-      },
     ],
   },
   {

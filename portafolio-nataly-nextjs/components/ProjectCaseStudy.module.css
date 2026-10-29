@@ -1,6 +1,9 @@
 .case {
   display: grid;
   gap: clamp(3rem, 7vw, 5.5rem);
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .hero {
@@ -12,36 +15,33 @@
   margin: 0;
   display: grid;
   gap: 0.08em;
-  width: max-content;
+  width: 100%;
   max-width: 100%;
+  min-width: 0;
   font-family: var(--font-serif);
   font-weight: 600;
   font-size: clamp(2.15rem, 5.2vw, 3.55rem);
-  line-height: 1.02;
+  line-height: 1.08;
   letter-spacing: -0.04em;
   color: var(--ink);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .heroLine {
   display: block;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .heroTitleWrap {
   width: min(100%, 18ch);
 }
 
-.heroTitleWrap .heroLine {
-  white-space: normal;
-}
-
 .heroTitleSingle {
-  width: max-content;
+  width: 100%;
   max-width: 100%;
-}
-
-.heroTitleSingle .heroLine {
-  white-space: nowrap;
 }
 
 .heroAccent {
@@ -156,6 +156,8 @@
   line-height: 1.3;
   letter-spacing: -0.015em;
   color: var(--ink);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .browser {
@@ -273,9 +275,11 @@
   font-family: var(--font-serif);
   font-weight: 600;
   font-size: clamp(1.7rem, 3.6vw, 2.45rem);
-  line-height: 1.05;
+  line-height: 1.12;
   letter-spacing: -0.03em;
   color: var(--ink);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .sectionLead {
@@ -504,6 +508,29 @@
   line-height: 1.55;
   color: #4a4547;
   text-wrap: pretty;
+}
+
+.brandLogoStage {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: min(52vh, 420px);
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(
+      90% 80% at 50% 40%,
+      color-mix(in srgb, var(--project-accent) 12%, #fff),
+      #fff 70%
+    );
+  border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+.brandLogoImage {
+  width: min(100%, 320px);
+  height: auto;
+  object-fit: contain;
 }
 
 .institutionCard {
@@ -871,15 +898,23 @@
 
 @media (max-width: 640px) {
   .meta {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .heroTitle {
-    font-size: clamp(1.85rem, 8.5vw, 2.35rem);
+    font-size: clamp(2.35rem, 10.5vw, 2.85rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
   }
 
-  .heroTitleSingle .heroLine {
-    white-space: normal;
+  .heroLead {
+    font-size: clamp(1.12rem, 4.2vw, 1.28rem);
+    line-height: 1.45;
+  }
+
+  .heroLeadCard {
+    min-height: 0;
+    padding: 1.2rem 1.15rem 1.3rem 1.25rem;
   }
 
   .sectionLead {
@@ -888,5 +923,9 @@
 
   .case {
     gap: clamp(2.4rem, 8vw, 3.5rem);
+  }
+
+  .institutionCard {
+    padding: 1.05rem 1.1rem 1.15rem 1.2rem;
   }
 }

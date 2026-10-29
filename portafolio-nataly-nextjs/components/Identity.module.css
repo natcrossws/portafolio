@@ -131,6 +131,12 @@
   outline-offset: 3px;
 }
 
+@media (max-width: 820px) {
+  .section {
+    scroll-snap-align: none;
+  }
+}
+
 @media (max-width: 720px) {
   .section {
     gap: 8px;
